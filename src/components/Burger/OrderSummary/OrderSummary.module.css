@@ -1,0 +1,17 @@
+.Button {
+  border-radius: 25px;
+  border: 1px solid #eee;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 1px 2px 3px #cccc;
+}
+
+.Danger {
+  background-color: Red;
+  color: #fff;
+}
+
+.Success {
+  background-color: green;
+  color: white;
+}
