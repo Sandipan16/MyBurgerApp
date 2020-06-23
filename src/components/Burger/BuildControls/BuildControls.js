@@ -11,6 +11,9 @@ const controls = [
 export default props => {
   return (
     <div className={classes.BuildControls}>
+      <p>
+        The current price : <strong>{props.price.toFixed(2)}</strong>
+      </p>
       {controls.map(ctr => {
         return (
           <BuildControl
@@ -19,6 +22,7 @@ export default props => {
             type={ctr.type}
             removed={() => props.onRemove(ctr.type)}
             added={() => props.onAdd(ctr.type)}
+            disabled={props.disabled[ctr.type]}
           />
         );
       })}
