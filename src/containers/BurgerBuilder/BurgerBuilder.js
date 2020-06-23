@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Layout from "../../components/Layout/Layout";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
+import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 
 const INGREDIENT_PRICE = {
   meat: 1.3,
@@ -29,12 +30,14 @@ class BurgerBuilder extends Component {
 
     this.setState({ purchasable: sum > 0 });
   };
+
   addIngredient = type => {
     const oldCount = this.state.ingredients[type];
     const updateCount = oldCount + 1;
     const updatedIngredients = {
       ...this.state.ingredients
     };
+
     updatedIngredients[type] = updateCount;
     const updatedPrice = this.state.totalPrice + INGREDIENT_PRICE[type];
     this.setState({
@@ -69,6 +72,7 @@ class BurgerBuilder extends Component {
     }
     return (
       <Layout>
+        <OrderSummary ingredients={this.state.ingredients} />
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           onAdd={this.addIngredient}
