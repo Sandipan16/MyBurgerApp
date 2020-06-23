@@ -1,6 +1,7 @@
 import React from "react";
 import BuildControl from "../BuildControl/BuildControl";
 import classes from "./BuildControls.module.css";
+import styles from "./OrderButton.module.css";
 
 const controls = [
   { label: "Meat", type: "meat" },
@@ -26,6 +27,9 @@ export default props => {
           />
         );
       })}
+      <button className={styles.OrderButton} disabled={!props.purchased}>
+        ORDER NOW
+      </button>
     </div>
   );
 };
